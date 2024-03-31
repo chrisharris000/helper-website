@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Docker Shortcuts {% endblock %}</h1>
+
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Start up all services in default <i>docker-compose.yml</i> and put them in the background</td>
+            <td><code>docker compose up -d</code></td>
+        </tr>
+        <tr>
+            <td>Start up all services in specific yml file and put them in the background</td>
+            <td><code>docker compose up -f /path/to/compose.yml -d</code></td>
+        </tr>
+        <tr>
+            <td>Start up specifc services in specific yml file</td>
+            <td><code>docker compose up -f /path/to/compose.yml -d service1 service2</code></td>
+        </tr>
+        <tr>
+            <td>Copy file into docker container</td>
+            <td><code>docker cp file.ext containerName:/path/in/container</code></td>
+        </tr>
+        <tr>
+            <td>Open bash terminal in container</td>
+            <td><code>docker exec -it /bin/bash <i>containerName</i></td>
+        </tr>
+    </table>
+
+{% endblock %}

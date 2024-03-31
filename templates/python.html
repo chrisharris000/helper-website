@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{% block title %} Python Shortcuts {% endblock %}</h1>
+
+    <h2>Iterate over iterable <i>n</i> elements at a time</h2>
+    <pre><code>def grouper(iterable, n, *, incomplete='fill', fillvalue=None):
+    "Collect data into non-overlapping fixed-length chunks or blocks."
+    # grouper('ABCDEFG', 3, fillvalue='x') → ABC DEF Gxx
+    # grouper('ABCDEFG', 3, incomplete='strict') → ABC DEF ValueError
+    # grouper('ABCDEFG', 3, incomplete='ignore') → ABC DEF
+    iterators = [iter(iterable)] * n
+    match incomplete:
+        case 'fill':
+            return zip_longest(*iterators, fillvalue=fillvalue)
+        case 'strict':
+            return zip(*iterators, strict=True)
+        case 'ignore':
+            return zip(*iterators)
+        case _:
+            raise ValueError('Expected fill, strict, or ignore')
+    </code></pre>
+
+    <h2>Using argparse</h2>
+    <pre><code>import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--file", help="file to output data to", required=True)
+parser.add_argument("integers", metavar="int", nargs="+", type=int, help="an integer to be summed") 
+args = parser.parse_args()
+print(args.file)
+for num in args.integers:
+    print(num)
+    </code></pre>
+
+    <h2>Rescale value to new range</h2>
+    <pre><code>def rescale(value, original_min, original_max, new_min, new_max) -> float:
+    """
+    Convert a given 'value' that lies in the range 'original_min' - 'original_max' to its equivalent
+    position in the new range 'new_min' - 'new_max'
+    """
+    original_range = original_max - original_min
+    new_range = new_max - new_min
+    scaled_value = float(value - original_min) / float(original_range)
+    return new_min + (scaled_value * new_range)  
+    </code></pre>
+
+{% endblock %}

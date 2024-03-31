@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} VSCode Shortcuts {% endblock %}</h1>
+    <h2>Editor Shortcuts</h2>
+
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Open Markdown preview</td>
+            <td><code>Ctrl + Shift + V</code></td>
+        </tr>
+        <tr>
+            <td>Select all matches from search</td>
+            <td><code>Ctrl + Shift + L</code></td>
+        </tr>
+        <tr>
+            <td>Open User Settings</td>
+            <td><code>Ctrl + ,</code></td>
+        </tr>
+        <tr>
+            <td>Zen Mode</td>
+            <td><code>Ctrl + K Z</code></td>
+        </tr>
+        <tr>
+            <td>Side by Side editing of same file</td>
+            <td><code>Ctrl + \</code></td>
+        </tr>
+        <tr>
+            <td>Column/box selection</td>
+            <td><code>Shift + Alt</code></td>
+        </tr>
+        <tr>
+            <td>Transform text commands</td>
+            <td><code>Ctrl + Shift + P</code> for command list, > transform</td>
+        </tr>
+        <tr>
+            <td>Code Formatting</td>
+            <td><code>Ctrl + K Ctrl + F</code></td>
+        </tr>
+    </table>
+
+    <h2>Regex Recipes</h2>
+    <table>
+        <tr>
+            <td>Matching</td>
+            <td>Regex</td>
+        </tr>
+        <tr>
+            <td>JSON messages with empty field named <i>entities</i></td>
+            <td><code>"entities" ?: ?\[\]</code></td>
+        </tr>
+        <tr>
+            <td>JSON messages with non-empty field named <i>entities</i></td>
+            <td><code>"entities" ?: ?\[[^\]]+\]</code></td>
+        </tr>
+        <tr>
+            <td>Line with timestamp between 1053 and 1055</td>
+            <td><code>.*"timestamp":"\d{4}-\d{2}-\d{2}T10:5[3-5]:\d{2}.*</code></td>
+        </tr>
+        <tr>
+            <td>Blank line</td>
+            <td><code>^$\n</code></td>
+        </tr>
+    </table>
+
+{% endblock %}

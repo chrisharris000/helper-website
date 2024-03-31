@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} MGRS-Lat/Lon Coordinate Conversion {% endblock %}</h1>
+    <form method="post">
+        <label for="mgrs_coord">MGRS: </label>
+        <input type="text" name="mgrs_coord"
+               placeholder="MGRS Coordinate"
+               value="{{ mgrs_coord_output }}"></input>
+        <br>
+
+        <label for="lat_coord">Latitude: </label>
+        <input type="text" name="lat_coord"
+               placeholder="Latitude Coordinate"
+               value="{{ lat_coord_output }}"></input>
+        <br>
+
+        <label for="lon_coord">Longitude: </label>
+        <input type="text" name="lon_coord"
+               placeholder="Longitude Coordinate"
+               value="{{ lon_coord_output }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

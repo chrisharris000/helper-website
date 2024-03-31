@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block body_attrs %} onload="startTime();" {% endblock %}
+
+{% block content %}
+    <h1>{% block title %} Time Zones {% endblock %}</h1>
+
+    <div id="timezone-display"></div>
+
+
+    <script>
+        function startTime() {
+            var tz_list = {
+                "adl": ["Adelaide", "Australia/Adelaide"],
+                "syd": ["Sydney/Melbourne/Canberra", "Australia/Sydney"],
+                "bne": ["Brisbane", "Australia/Brisbane"],
+                "per": ["Perth", "Australia/Perth"],
+                "lax": ["Los Angeles", "America/Los_Angeles"],
+                "lon": ["London", "Europe/London"],
+            }
+            today = new Date();
+            for (var tz_id in tz_list) {
+                var display_name = tz_list[tz_id][0];
+                var tz_timezone = tz_list[tz_id][1];
+                var options = {
+                    timeZone: tz_timezone,
+                    timeZoneName: "short",
+                    hour12: false,
+                };
+                var tz_time = today.toLocaleString(undefined, options);
+
+                const h_tag = document.createElement("h2");
+                h_tag.setAttribute("id", tz_id);
+                const display_elem = document.getElementById("timezone-display");
+                display_elem.appendChild(h_tag)
+                document.getElementById(tz_id).innerHTML =  display_name + ": " + tz_time
+
+            }
+            setTimeout(startTime, 1000);
+        }
+        
+        </script>
+    
+    
+{% endblock %}

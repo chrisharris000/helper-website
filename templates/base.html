@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        /* Navigation links */
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* The subnavigation menu */
+        .subnav {
+            float: left;
+            overflow: hidden;
+        }
+
+        /* Subnav button */
+        .subnav .subnavbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        /* Add a red background color to navigation links on hover */
+        .navbar a:hover, .subnav:hover .subnavbtn {
+            background-color: red;
+        }
+
+        /* Style the subnav content - positioned absolute */
+        .subnav-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: red;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Style the subnav links */
+        .subnav-content a {
+            float: left;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Add a grey background color on hover */
+        .subnav-content a:hover {
+            background-color: #eee;
+            color: black;
+        }
+
+        /* When you move the mouse over the subnav container, open the subnav content */
+        .subnav:hover .subnav-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body {% block body_attrs %}{% endblock %}>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <div class="subnav">
+        <button class="subnavbtn">Conversions<i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+            <a href="{{ url_for('mgrs_lat_lon') }}">MGRS-Lat/Lon</a>
+            <a href="{{ url_for('metres_feet') }}">Metres-Feet</a>
+            <a href="{{ url_for('timezones') }}">Timezones</a>
+        </div>
+        </div>
+        <a href="{{ url_for('apt') }}">Aptitude</a>
+        <a href="{{ url_for('docker') }}">Docker</a>
+        <a href="{{ url_for('pandas') }}">Pandas</a>
+        <a href="{{ url_for('python') }}">Python</a>
+        <a href="{{ url_for('vscode') }}">VSCode</a>
+    </div>
+        <hr>
+        <div class="content">
+            {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

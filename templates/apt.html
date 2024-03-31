@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Apt Shortcuts {% endblock %}</h1>
+
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Get installation candidate</td>
+            <td><code>apt policy <i>package</i></code></td>
+        </tr>
+        <tr>
+            <td>Get list of installed packages</td>
+            <td><code>apt list --installed</code></td>
+        </tr>
+        <tr>
+            <td>Get list of installed packages including name</td>
+            <td><code>apt list --installed | grep <i>name</i></code></td>
+        </tr>
+        <tr>
+            <td>Get signature for apt-offline on offline machine</td>
+            <td><code>sudo apt-offline set <i>package</i>.sig --install-packages <i>package</i><code></td>
+        </tr>
+        <tr>
+            <td>Download zip of apt packages from signature file</td>
+            <td><code>apt-offline get <i>pacakge</i>.sig --bundle <i>package</i>.zip<code></td>
+        </tr>
+        <tr>
+            <td>Install zip of apt packages from zip</td>
+            <td><code>sudo apt-offline install <i>package</i>.zip</code></td>
+        </tr>
+        <tr>
+            <td>Get dependencies of a package</td>
+            <td><code>apt depends <i>package</i></code></td>
+        </tr>
+    </table>
+
+{% endblock %}

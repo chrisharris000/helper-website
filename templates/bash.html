@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Bash Shortcuts {% endblock %}</h1>
+
+    <h2>grep</h2>
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Search for word recursively through directory and return filename</td>
+            <td><code>grep -irL ...</code></td>
+        </tr>
+        <tr>
+            <td>Ignore case</td>
+            <td><code>grep - ...</code></td>
+        </tr>
+        <tr>
+            <td>Search using regex</td>
+            <td><code>grep -E ...</code> or <code>egrep ...</code></td>
+        </tr>
+    </table>
+
+    <h2>Miscellaneous</h2>
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Find largest files in directory</td>
+            <td><code>...</code></td>
+        </tr>
+    </table>
+
+{% endblock %}
