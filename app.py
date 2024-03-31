@@ -60,4 +60,5 @@ def metres_feet():
 def timezones():
     return render_template("time-conversion.html")
 
-#
+if __name__ == "__main__":
+    app.run(debug=True)
