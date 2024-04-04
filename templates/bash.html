@@ -11,15 +11,15 @@
         </tr>
         <tr>
             <td>Search for word recursively through directory and return filename</td>
-            <td><code>grep -irL ...</code></td>
+            <td><code>grep -rL <i>phrase</i></code></td>
         </tr>
         <tr>
             <td>Ignore case</td>
-            <td><code>grep - ...</code></td>
+            <td><code>grep -i <i>phrase</i></code></td>
         </tr>
         <tr>
             <td>Search using regex</td>
-            <td><code>grep -E ...</code> or <code>egrep ...</code></td>
+            <td><code>grep -E <i>expression</i></code> or <code>egrep <i>expression</i></code></td>
         </tr>
     </table>
 
@@ -30,8 +30,52 @@
             <td>Command</td>
         </tr>
         <tr>
-            <td>Find largest files in directory</td>
-            <td><code>...</code></td>
+            <td>Large files in directory</td>
+            <td><ul>
+                <li><code>ls -lS</code></li>
+                <li><code>find <i>/path/to/dir</i> -type f -size +100M</code></li>
+                <li><code>sudo du -aBm <i>/path/to/dir</i> 2>/dev/null | sort -nr | head -n 10</code></li>
+            </ul></td>
+        </tr>
+    </table>
+
+    <h2>tmux</h2>
+    <table>
+        <tr>
+            <td>Features</td>
+            <td>Command</td>
+        </tr>
+        <tr>
+            <td>Attach to previous session</td>
+            <td><code>tmux attach</code></td>
+        </tr>
+        <tr>
+            <td>Name session</td>
+            <td><code>Ctrl + B, Shift + $</code></td>
+        </tr>
+        <tr>
+            <td>Split vertical</td>
+            <td><code>Ctrl + B, Shift + "</code></td>
+        </tr>
+        <tr>
+            <td>Split horizontal</td>
+            <td><code>Ctrl + B, Shift + %</code></td>
+        </tr>
+        <tr>
+            <td>Move cursor to another pane</td>
+            <td><code>Ctrl + B, <i>arrow key</i></code></td>
+        </tr>
+        <tr>
+            <td>Detach from session</td>
+            <td><code>Ctrl + B, d</code></td>
+        </tr>
+        <tr>
+            <td>Kill session</td>
+            <td><code>Ctrl + B, :kill-session</code></td>
+        </tr>
+        <tr>
+            <td>List key bindings</td>
+            <td><code>Ctrl + B, Shift + ?</code></td>
         </tr>
     </table>
 
