@@ -21,6 +21,10 @@ def bash():
 def docker():
     return render_template("docker.html")
 
+@app.route("/git")
+def git():
+    return render_template("git.html")
+
 @app.route("/pandas")
 def pandas():
     return render_template("pandas.html")
