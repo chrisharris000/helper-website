@@ -37,6 +37,10 @@
                 <li><code>sudo du -aBm <i>/path/to/dir</i> 2>/dev/null | sort -nr | head -n 10</code></li>
             </ul></td>
         </tr>
+        <tr>
+            <td>Diff betwen local and remote file</td>
+            <td><code>ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt</code></td>
+        </tr>
     </table>
 
     <h2>tmux</h2>
