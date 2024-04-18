@@ -1,13 +1,18 @@
 from flask import Flask, render_template, request
+import yaml
 
 import conversions
 
 app = Flask(__name__)
 
+favourites = {}
+with open("favourites.yml", "r") as fav_fp:
+    favourites = yaml.safe_load(fav_fp)
+
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", favourites=favourites)
 
 @app.route("/apt")
 def apt():

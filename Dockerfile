@@ -5,6 +5,7 @@ FROM python:3.8-slim-buster
 WORKDIR /docker
 
 COPY requirements.txt requirements.txt
+COPY favourites.yml favourites.yml
 RUN pip3 install -r requirements.txt
 
 COPY . .
