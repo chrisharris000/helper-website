@@ -7,7 +7,7 @@ A Flask website in a Docker container with helpful snippets for offline use
 1. `docker build --tag helper-website .`
 
 ## Run
-1. `docker run -d -p 9876:9876 helper-website`  
+1. `docker run -d -v ${HOME}/helper-website:/docker -p 9876:9876 --name helper_website helper-website`  
 1. Access website on *HostIP*:9876
 
 
