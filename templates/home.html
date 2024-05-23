@@ -8,7 +8,7 @@
         {% for link in links %}
             <ul>
             {% for display_name, url in link.items() %}
-                <li><a href="{{ url }}">{{ display_name }}</a></li>
+                <li><a href="{{ url }}" target="_blank">{{ display_name }}</a></li>
             {% endfor %}
             </ul>
         {% endfor %}
