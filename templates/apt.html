@@ -36,6 +36,10 @@
             <td>Get dependencies of a package</td>
             <td><code>apt depends <i>package</i></code></td>
         </tr>
+		<tr>
+            <td>Download dependencies recursively</td>
+            <td><code>apt get download $(apt-rdepends <i>package</i> | grep -v "^ " | grep "^<i>missing dependencies</i>$"</code></td>
+        </tr>
     </table>
 
 {% endblock %}
