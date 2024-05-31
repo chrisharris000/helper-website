@@ -48,6 +48,10 @@
                 <li><code>ssh-copy-id -i ~/.ssh/keyname.pub user@remote</code></li>
             </ol></td>
         </tr>
+		<tr>
+            <td>Set device time from other device</td>
+            <td><code>remote_time=`ssh user@host date` && sudo date -s "$remote_time"</code></td>
+        </tr>
     </table>
 
     <h2>tmux</h2>
