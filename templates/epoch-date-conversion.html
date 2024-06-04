@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Epoch/Date Conversion {% endblock %}</h1>
+    <form method="post">
+        <label for="epoch_time">Epoch time (ms): </label>
+        <input type="text" name="epoch_time"
+               placeholder="Epoch time"
+               value="{{ epoch_time_output }}"></input>
+        <br>
+
+        <label for="date_time">Date: </label>
+        <input type="text" name="date_time"
+               placeholder="YYYY-MM-DD HH:MM:SS"
+               value="{{ date_time_output }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

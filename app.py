@@ -69,5 +69,16 @@ def metres_feet():
 def timezones():
     return render_template("time-conversion.html")
 
+@app.route("/epoch-date", methods=("GET", "POST"))
+def epoch_date():
+    if request.method == "POST":
+        epoch_time = request.form["epoch_time"]
+        date_time = request.form["date_time"]
+
+        epoch_vars = conversions.convert_epoch_date(epoch_time, date_time)
+        return render_template("epoch-date-conversion.html", **epoch_vars)
+    else:
+        return render_template("epoch-date-conversion.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
