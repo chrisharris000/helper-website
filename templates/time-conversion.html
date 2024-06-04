@@ -7,7 +7,6 @@
 
     <div id="timezone-display"></div>
 
-
     <script>
         function startTime() {
             var tz_list = {
@@ -17,6 +16,7 @@
                 "per": ["Perth", "Australia/Perth"],
                 "lax": ["Los Angeles", "America/Los_Angeles"],
                 "lon": ["London", "Europe/London"],
+                "epo": ["Epoch", "ms"]
             }
             today = new Date();
             for (var tz_id in tz_list) {
@@ -27,7 +27,12 @@
                     timeZoneName: "short",
                     hour12: false,
                 };
-                var tz_time = today.toLocaleString(undefined, options);
+                if (display_name == "Epoch") {
+                    var tz_time = Date.now() + " ms";
+                }
+                else {
+                    var tz_time = today.toLocaleString(undefined, options);
+                }
 
                 const h_tag = document.createElement("h2");
                 h_tag.setAttribute("id", tz_id);
@@ -40,6 +45,5 @@
         }
         
         </script>
-    
     
 {% endblock %}
