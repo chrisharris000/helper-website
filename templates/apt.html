@@ -38,7 +38,7 @@
         </tr>
 		<tr>
             <td>Download dependencies recursively</td>
-            <td><code>apt get download $(apt-rdepends <i>package</i> | grep -v "^ " | grep "^<i>missing dependencies</i>$"</code></td>
+            <td><code>apt-get download $(apt-rdepends <i>package</i> | grep -v "^ " )</code></td>
         </tr>
     </table>
 
