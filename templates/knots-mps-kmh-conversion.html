@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Knots, m/s, km/h Conversion {% endblock %}</h1>
+    <form method="post">
+        <label for="knots">Knots: </label>
+        <input type="text" name="knots"
+               placeholder="knots"
+               value="{{ knots_output }}"></input>
+        <br>
+
+        <label for="mps">Metres per seond: </label>
+        <input type="text" name="mps"
+               placeholder="m/s"
+               value="{{ mps_output }}"></input>
+        <br>
+
+        <label for="kmh">Kilometres per hour: </label>
+        <input type="text" name="kmh"
+               placeholder="km/h"
+               value="{{ kmh_output }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

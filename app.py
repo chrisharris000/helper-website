@@ -79,6 +79,18 @@ def epoch_date():
         return render_template("epoch-date-conversion.html", **epoch_vars)
     else:
         return render_template("epoch-date-conversion.html")
+    
+@app.route("/knots-mps-kmh", methods=("GET", "POST"))
+def knots_mps_kmh():
+    if request.method == "POST":
+        knots = request.form["knots"]
+        mps = request.form["mps"]
+        kmh = request.form["kmh"]
+
+        speed_vars = conversions.convert_knots_mps_kmh(knots, mps, kmh)
+        return render_template("knots-mps-kmh-conversion.html", **speed_vars)
+    else:
+        return render_template("knots-mps-kmh-conversion.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

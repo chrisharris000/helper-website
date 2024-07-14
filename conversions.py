@@ -81,3 +81,38 @@ def convert_epoch_date(epoch_time, date_time):
         "epoch_time_output": epoch_time_output
     }
     return distance_vars
+
+def _convert_knots_to_mps(knots):
+    return knots * 0.5144
+
+def _convert_mps_to_knots(mps):
+    return mps * 1.943844
+
+def _convert_mps_to_kmh(mps):
+    return mps / 1000 * 60 * 60
+
+def _convert_kmh_to_mps(kmh):
+    return kmh * 1000 / 60 / 60
+
+def convert_knots_mps_kmh(knots, mps, kmh):
+    if not knots and not mps:
+        mps_output = _convert_kmh_to_mps(float(kmh))
+        knots_output = _convert_mps_to_kmh(float(mps_output))
+        kmh_output = kmh
+
+    elif not knots and not kmh:
+        knots_output = _convert_mps_to_knots(float(mps))
+        mps_output = mps
+        kmh_output = _convert_mps_to_kmh(float(mps))
+
+    elif not mps and not kmh:
+        knots_output = knots
+        mps_output = _convert_knots_to_mps(float(knots))
+        kmh_output = _convert_mps_to_kmh(float(mps_output))
+
+    speed_vars = {
+        "knots_output": knots_output,
+        "mps_output": mps_output,
+        "kmh_output": kmh_output
+    }
+    return speed_vars
