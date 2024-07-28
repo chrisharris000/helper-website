@@ -39,6 +39,7 @@
 		<tr>
             <td>Download dependencies recursively</td>
             <td><code>apt-get download $(apt-rdepends <i>package</i> | grep -v "^ " )</code></td>
+            <td><code>apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends <i>package</i> | grep "^\w"</code></td>
         </tr>
     </table>
 
